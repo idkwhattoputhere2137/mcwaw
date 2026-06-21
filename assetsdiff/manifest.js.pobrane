@@ -1,8 +1,8 @@
 let webManifest = {
     "name": "",
     "short_name": "",
-    "theme_color": "#f5f6fb",
-    "background_color": "#f5f6fb",
+    "theme_color": "#101317",
+    "background_color": "#101317",
     "display": "standalone"
 };
 
