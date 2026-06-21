@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="pl">
 <head>
     <title>mObywatel</title>
     <meta charset="UTF-8">
@@ -8,7 +10,6 @@
     <link rel="shortcut icon" href="https://i.imgur.com/U7TRg0V.png">
 
     <meta name="theme-color" content="#121212">
-
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
 
@@ -19,37 +20,82 @@
 
 <body>
     <div class="background"></div>
+
     <div class="top_grid">
         <img class="logo" src="https://i.imgur.com/30pODeI.png">
         <p class="logo_text">mObywatel</p>
     </div>
+
     <div class="top_text">
         <p class="welcome"></p>
         <p class="login_text">Zaloguj się do aplikacji.</p>
     </div>
+
     <div class="password_box">
         <div class="password_grid">
             <p class="password_text">Wpisz hasło</p>
+
             <div class="input_holder">
-                <input class="password_input" type="password" inputmode="numeric" maxlength="6" autocomplete="off">
+                <input
+                    class="password_input"
+                    type="password"
+                    maxlength="20"
+                    autocomplete="off">
                 <div class="eye"></div>
             </div>
-            <p class="forgot_password">Zapomniałeś hasla?</p>
+
+            <p class="forgot_password">Zapomniałeś hasła?</p>
             <p class="pin_status" aria-live="polite"></p>
         </div>
     </div>
+
     <div class="bottom">
-        <p class="login">Zaloguj się</p>
-        <button type="button" class="biometric_login">Logowanie biometryczne</button>
+        <button type="button" class="login">Zaloguj się</button>
+
+        <button type="button" class="biometric_login">
+            Logowanie biometryczne
+        </button>
 
         <div class="data">
-            <img class="logo_other" style="height: 70px; width: 430px" src="IMG_4756.png">
-
+            <img
+                class="logo_other"
+                style="height: 70px; width: 430px"
+                src="IMG_4756.png">
         </div>
+
         <div>
-            <p class="version" style="text-align: center;">wersja 4.71.0 (5323)</p>
+            <p class="version" style="text-align: center;">
+                wersja 4.71.0 (5323)
+            </p>
         </div>
     </div>
+
+    <script>
+        document.querySelector('.login').addEventListener('click', function () {
+            const password =
+                document.querySelector('.password_input').value;
+
+            const status =
+                document.querySelector('.pin_status');
+
+            if (password === 'jp1312') {
+                status.textContent = 'Zalogowano pomyślnie';
+
+                // tutaj możesz ustawić przekierowanie:
+                // window.location.href = 'home.html';
+            } else {
+                status.textContent = 'Nieprawidłowe hasło';
+            }
+        });
+
+        document.querySelector('.password_input').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.login').click();
+            }
+        });
+    </script>
+
     <script src="assets/id.js?v=2.0"></script>
     <script src="assets/manifest.js"></script>
 </body>
+</html>
